@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>dishesList</title>
+</head>
+
+<div id="container" style="width:1800px">
+
+  <div th:insert="commons::name"></div>
+
+  <div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
+    <p>用户列表</p>
+
+    <form action="/userListByWageGreater" method="post">
+      <label>
+        请输入薪资(大于)<input type="number" name="wage">
+        <label>
+          请选择页数<select name="number">
+          <option value="0">1</option>
+          <option value="1">2</option>
+        </select>
+        </label>
+      </label>
+      <input type="submit" value="确定">
+    </form>
+
+    <form action="/userListByWageLess" method="post">
+      <label>
+        请输入薪资(小于)<input type="number" name="wage">
+        <label>
+          请选择页数<select name="number">
+          <option value="0">1</option>
+          <option value="1">2</option>
+        </select>
+        </label>
+        <input type="submit" value="确定">
+      </label>
+    </form>
+    <table border="1">
+      <tr>
+        <th>id</th>
+        <th>用户名</th>
+        <th>分身</th>
+        <th>薪资</th>
+      </tr>
+
+      <tr th:each="m:${userList}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.name}"></td>
+        <td th:text="${m.identity}"></td>
+        <td th:text="${m.wage}"></td>
+      </tr>
+
+      <tr th:each="m:${userLists}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.name}"></td>
+        <td th:text="${m.identity}"></td>
+        <td th:text="${m.wage}"></td>
+      </tr>
+    </table>
+
+    <form action="/userListPage" method="post">
+      <label>
+        请选择页数<select name="number">
+        <option value="0">1</option>
+        <option value="1">2</option>
+      </select>
+      </label>
+      <input type="submit" value="确定">
+    </form>
+
+  </div>
+
+  <div id="footer" style="background-color:#CCFFCC;clear:both;text-align:center;">
+    版权 你不可以动哦</div>
+</div>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>dishesList</title>
+</head>
+
+<div id="container" style="width:1800px">
+
+  <div th:insert="commons::name"></div>
+
+  <div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
+    <p>消费记录</p>
+
+    <form action="/dishesListByTable" method="post">
+      <label>
+        请输入桌号<input type="number" name="id">
+        <label>
+          请选择页数<select name="number">
+          <option value="0">1</option>
+          <option value="1">2</option>
+        </select>
+        </label>
+      </label>
+      <input type="submit" value="确定">
+    </form>
+
+    <form action="/dishesListByDishes" method="post">
+      <label>
+        请输入菜品id<input type="number" name="id">
+        <label>
+          请选择页数<select name="number">
+          <option value="0">1</option>
+          <option value="1">2</option>
+        </select>
+        </label>
+        <input type="submit" value="确定">
+      </label>
+    </form>
+    <table border="1">
+      <tr>
+        <th>id</th>
+        <th>桌号</th>
+        <th>菜品编号</th>
+        <th>菜品名称</th>
+        <th>菜品价格</th>
+        <th>菜品数量</th>
+        <th>菜品状态</th>
+        <th>日期</th>
+      </tr>
+
+      <tr th:each="m:${dishList}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.tableId}"></td>
+        <td th:text="${m.dishesId}"></td>
+        <td th:text="${m.name}"></td>
+        <td th:text="${m.price}"></td>
+        <td th:text="${m.count}"></td>
+        <td th:text="${m.status}"></td>
+        <td th:text="${m.date}"></td>
+      </tr>
+
+      <tr th:each="m:${dishLists}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.tableId}"></td>
+        <td th:text="${m.dishesId}"></td>
+        <td th:text="${m.name}"></td>
+        <td th:text="${m.price}"></td>
+        <td th:text="${m.count}"></td>
+        <td th:text="${m.status}"></td>
+        <td th:text="${m.date}"></td>
+      </tr>
+    </table>
+
+    <form action="/dishesListPage" method="post">
+      <label>
+        请选择页数<select name="number">
+        <option value="0">1</option>
+        <option value="1">2</option>
+      </select>
+      </label>
+      <input type="submit" value="确定">
+    </form>
+
+  </div>
+
+  <div id="footer" style="background-color:#CCFFCC;clear:both;text-align:center;">
+    版权 你不可以动哦</div>
+</div>
+</html>

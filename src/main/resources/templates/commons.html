@@ -1,0 +1,44 @@
+<div th:fragment="name" id="id">
+  <span>
+    <div id="header" style="background-color:#33CCCC;">
+    <h1 style="margin-bottom:0;text-align:center">欢迎使用餐厅管理系统</h1></div>
+
+  <div id="menu" style="background-color:#D0D0D0;height:1000px;width:200px;float:left;">
+    <b></b><br>
+    <ul>
+      菜单管理
+      <li><a href="/newDishes">上架菜品</a>
+    </ul>
+      <ul>
+      消费清单
+      <li><a href="/dishesList">查看消费清单</a>
+      <li><a href="/incomeList">查看餐厅流水</a> </li>
+    </ul>
+    <ul>
+      用户管理
+        <li><a href="/newUser">添加用户</a></li>
+        <li><a href="/userList">用户列表</a></li>
+        <li><a href="/deleteUser">删除用户</a></li>
+        <li><a href="/changePassword">更改密码</a></li>
+        <li><a href="/login">退出系统</a></li>
+    </ul>
+  </div>
+  </span>
+</div>
+
+
+<div th:fragment="name1" id="id1">
+  <span>
+    <div id="header1" style="background-color:#33CCCC;">
+    <h1 style="margin-bottom:0;text-align:center">欢迎使用餐厅管理系统</h1></div>
+
+  <div id="menu1" style="background-color:#D0D0D0;height:1000px;width:200px;float:left;">
+    <b></b><br>
+      <ul>
+      <li><a href="/startCooking">做菜</a>
+      <li><a href="/rest">休息</a> </li>
+        <li><a href="/login">下班</a></li>
+    </ul>
+  </div>
+  </span>
+</div>

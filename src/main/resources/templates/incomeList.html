@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>incomeList</title>
+</head>
+
+<div id="container" style="width:1800px">
+
+  <div th:insert="commons::name"></div>
+
+  <div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
+    <p>餐厅流水</p>
+
+    <form action="/incomeListByTable" method="post">
+      <label>
+        请输入桌号<input type="number" name="id">
+        <label>
+          请选择页数<select name="number">
+          <option value="0">1</option>
+          <option value="1">2</option>
+        </select>
+        </label>
+      </label>
+      <input type="submit" value="确定">
+    </form>
+
+    <table border="1">
+      <tr>
+        <th>id</th>
+        <th>桌号</th>
+        <th>桌台收入</th>
+      </tr>
+
+      <tr th:each="m:${incomeList}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.income}"></td>
+      </tr>
+
+      <tr th:each="m:${incomeLists}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.income}"></td>
+      </tr>
+    </table>
+
+    <form action="/incomeListPage" method="post">
+      <label>
+        请选择页数<select name="number">
+        <option value="0">1</option>
+        <option value="1">2</option>
+      </select>
+      </label>
+      <input type="submit" value="确定">
+    </form>
+
+  </div>
+
+  <div id="footer" style="background-color:#CCFFCC;clear:both;text-align:center;">
+    版权 你不可以动哦</div>
+</div>
+</html>

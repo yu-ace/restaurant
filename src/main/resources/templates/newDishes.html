@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>newDishes</title>
+</head>
+
+<div id="container" style="width:1800px">
+
+  <div th:insert="commons::name"></div>
+
+  <div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
+    <p>上架菜品</p>
+    <p th:text="${tip}"></p>
+    <form action="/newDishes" method="post">
+      <div>
+        <label>
+          菜名
+          <input type="text" name="name">
+        </label>
+      </div>
+      <div>
+        <label>
+          价格
+          <input type="number" name="price">
+        </label>
+      </div>
+      <div>
+        <label>
+          种类
+          <input type="text" name="category">
+        </label>
+      </div>
+      <div>
+        <input type="submit" value="确定">
+      </div>
+    </form>
+
+  </div>
+
+  <div id="footer" style="background-color:#CCFFCC;clear:both;text-align:center;">
+    版权 你不可以动哦</div>
+</div>
+</html>
